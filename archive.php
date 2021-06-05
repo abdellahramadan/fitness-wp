@@ -1,11 +1,7 @@
 <?php
 /**
- * The main template file
+ * The template for displaying archive pages
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package UnderStrap
@@ -19,24 +15,28 @@ get_header();
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
 
-<?php if ( is_front_page() && is_home() ) : ?>
-	<?php get_template_part( 'global-templates/hero' ); ?>
-<?php endif; ?>
-
-<div class="wrapper" id="index-wrapper">
+<div class="wrapper" id="archive-wrapper">
 
 	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 
 		<div class="row">
 
-			<!-- Do the left sidebar check and opens the primary div -->
+			<!-- Do the left sidebar check -->
 			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
 
 			<main class="site-main" id="main">
 
 				<?php
 				if ( have_posts() ) {
-					// Start the Loop.
+					?>
+					<header class="page-header">
+						<?php
+						the_archive_title( '<h1 class="page-title">', '</h1>' );
+						the_archive_description( '<div class="taxonomy-description">', '</div>' );
+						?>
+					</header><!-- .page-header -->
+					<?php
+					// Start the loop.
 					while ( have_posts() ) {
 						the_post();
 
@@ -54,17 +54,18 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			</main><!-- #main -->
 
-			<!-- The pagination component -->
-			<?php understrap_pagination(); ?>
-
-			<!-- Do the right sidebar check -->
-			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
+			<?php
+			// Display the pagination component.
+			understrap_pagination();
+			// Do the right sidebar check.
+			get_template_part( 'global-templates/right-sidebar-check' );
+			?>
 
 		</div><!-- .row -->
 
 	</div><!-- #content -->
 
-</div><!-- #index-wrapper -->
+</div><!-- #archive-wrapper -->
 
 <?php
 get_footer();
