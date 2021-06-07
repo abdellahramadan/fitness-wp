@@ -10,8 +10,12 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+echo '<div class="page-wrapper">';
+
 get_header();
 ?>
+
+</div>
 
 <?php
 get_footer();
