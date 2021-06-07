@@ -2,7 +2,7 @@
 /**
  * UnderStrap functions and definitions
  *
- * @package UnderStrap
+ * @package Fitness-wp
  */
 
 // Exit if accessed directly.
