@@ -18,7 +18,11 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 		$theme_version = $the_theme->get( 'Version' );
 
 		$css_version = $theme_version . '.' . filemtime( get_template_directory() . '/assets/css/style.css' );
-		wp_enqueue_style( 'fitness-wp', get_template_directory_uri() . '/assets/css/style.css', array(), $css_version );
+		wp_enqueue_style( 'stylesheet', get_template_directory_uri() . '/assets/css/style.css', array(), $css_version );
+		wp_enqueue_style( 'hover', get_template_directory_uri() . '/assets/css/hover.css' );
+		wp_enqueue_style( 'responsive', get_template_directory_uri() . '/assets/css/responsive.css' );
+		wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css' );
+		//wp_enqueue_style( 'color', get_template_directory_uri() . '/assets/css/color.css' );
 
 		wp_enqueue_script( 'jquery' );
 
