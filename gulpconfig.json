@@ -5,9 +5,9 @@
 		"files": ["./css/*.min.css", "./js/*.min.js", "./**/*.php"]
 	},
 	"paths": {
-		"js": "./js",
-		"css": "./css",
-		"fonts": "./fonts",
+		"js": "./assets/js",
+		"css": "./assets/css",
+		"fonts": "./assets/fonts",
 		"img": "./img",
 		"imgsrc": "./src/img",
 		"sass": "./sass",
